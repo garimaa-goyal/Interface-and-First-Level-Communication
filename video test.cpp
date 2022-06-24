@@ -34,6 +34,11 @@ int main(int, char**)
             cerr << "ERROR! blank frame grabbed\n";
             break;
         }
+        cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 0.75);//auto mode, 0.75 to on the auto exposure
+       cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 0.25);//manual mode, 0.25 to off the auto exposure
+       // after 0.25 value, we can set it to any desired value
+       cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 14);//set the desired exposure value, here it is 14
+
         // show live and wait for a key with timeout long enough to show images
         imshow("Live", frame);
         if (waitKey(5) >= 0)
